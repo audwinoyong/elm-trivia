@@ -36,7 +36,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ img [ src "../public/logo.svg" ] []
+        [ img [ src "elm.png" ] []
         , h1 [] [ text "Your Elm App is working!" ]
         ]
 
