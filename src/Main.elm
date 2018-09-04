@@ -71,7 +71,7 @@ contentView model =
 welcomeView : Html Msg
 welcomeView =
   div
-    []
-    [ h1 [] [ text "Trivia Game" ]
-    , button [ onClick StartTrivia ] [ text "START" ]
+    [ class "trivia" ]
+    [ h1 [ class "question" ] [ text "Trivia Game" ]
+    , button [ class "check", onClick StartTrivia ] [ text "START" ]
     ]
