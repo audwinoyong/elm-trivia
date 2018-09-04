@@ -1,55 +1,40 @@
-module Main exposing (..)
-
-import Html exposing (Html, text, div, h1, img)
-import Html.Attributes exposing (src)
+import Html exposing (Html, button, div, text)
+import Html.Events exposing (onClick)
 
 
----- MODEL ----
+main =
+  Html.beginnerProgram { model = model, view = view, update = update }
 
 
-type alias Model =
-    {}
+-- MODEL
+
+type alias Model = Int
+
+model : Model
+model =
+  0
 
 
-init : ( Model, Cmd Msg )
-init =
-    ( {}, Cmd.none )
+-- UPDATE
 
+type Msg = Increment | Decrement
 
-
----- UPDATE ----
-
-
-type Msg
-    = NoOp
-
-
-update : Msg -> Model -> ( Model, Cmd Msg )
+update : Msg -> Model -> Model
 update msg model =
-    ( model, Cmd.none )
+  case msg of
+    Increment ->
+      model + 1
+
+    Decrement ->
+      model - 1
 
 
-
----- VIEW ----
-
+-- VIEW
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ img [ src "elm.png" ] []
-        , h1 [] [ text "Your Elm App is working!" ]
-        ]
-
-
-
----- PROGRAM ----
-
-
-main : Program Never Model Msg
-main =
-    Html.program
-        { view = view
-        , init = init
-        , update = update
-        , subscriptions = always Sub.none
-        }
+  div []
+    [ button [ onClick Decrement ] [ text "-" ]
+    , div [] [ text (toString model) ]
+    , button [ onClick Increment ] [ text "+" ]
+    ]
