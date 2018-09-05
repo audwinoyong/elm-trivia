@@ -3,7 +3,7 @@ module Main exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
-import Question exposing (..)
+import Modules.Question exposing (..)
 
 
 
@@ -33,7 +33,11 @@ type alias Model =
 model : Model
 model =
   { currentPage = WelcomePage
-  , question = Question "Which one of these is a CSS preprocessor?" [ "HTML", "SASS", "React", "Angular" ] "SASS" Question.NotAnswered
+  , question =
+      Question "Which one of these is a CSS preprocessor?"
+        [ "HTML", "SASS", "React", "Angular" ]
+        "SASS"
+        Modules.Question.NotAnswered
   }
 
 

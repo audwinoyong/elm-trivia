@@ -1,4 +1,4 @@
-module Question exposing (..)
+module Modules.Question exposing (..)
 
 import Html exposing (..)
 
