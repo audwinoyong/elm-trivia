@@ -16,72 +16,73 @@ h3 {
   text-align: center;
 }
 
-.trivia {
-  border: 1px solid #ddd;
+.triviaContainer {
+  border: 1px solid #DDD;
   border-radius: 10px;
   padding: 2em 1em;
   margin: auto 20px;
   height: 40em;
-  background-color: #fff;
+  background-color: #FFF;
 }
 
 @media (min-width: 1024px) {
-  .trivia {
+  .triviaContainer {
     margin: auto;
     height: 27em;
     width: 50%;
   }
 }
 
-.trivia h1.question {
+.triviaContainer h1.question {
   padding-bottom: 20px;
 }
 
 @media (min-width: 1024px) {
-  .trivia .choices {
+  .triviaContainer .choices {
     columns: 2;
     -webkit-columns: 2;
     -moz-columns: 2;
   }
 }
 
-.trivia .check {
+.triviaContainer .checkButton {
   margin-top: 10em;
   height: 10%;
   width: 100%;
   border-radius: 10px;
   font-size: 20px;
+  background: #87CEFA;
 }
 
 @media (min-width: 1024px) {
-  .trivia .check {
+  .triviaContainer .checkButton {
     margin-top: 1em;
     width: 97%;
   }
 }
 
-.trivia .check.disabled {
+.triviaContainer .checkButton.disabled {
   opacity: 0.65;
 }
 
-.choice {
+.choiceButton {
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #DDD;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: #FFF;
   margin-bottom: 9px;
   list-style: none;
   font-size: 20px;
 }
 
 @media (min-width: 1024px) {
-  .choice {
+  .choiceButton {
     display: inline-block;
     width: 90%;
     height: 100%;
   }
 }
 
-.choice.active {
+.choiceButton.active {
   border: 2px solid #FFA500;
 }

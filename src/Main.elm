@@ -84,27 +84,43 @@ contentView model =
 welcomeView : Html Msg
 welcomeView =
   div
-    [ class "trivia" ]
-    [ h1 [ class "question" ] [ text "Trivia Game" ]
-    , button [ class "check", onClick StartTrivia ] [ text "START" ]
+    [ class "triviaContainer" ]
+    [ triviaTitle "Trivia Game"
+    , startButton
     ]
+
+
+startButton : Html Msg
+startButton =
+  button
+  [ class "checkButton"
+  , onClick StartTrivia
+  ]
+  [ text "START" ]
 
 
 questionView : Model -> Html Msg
 questionView model =
   div
-    [ class "trivia" ]
-    [ h1 [ class "question" ] [ text model.question.content ]
+    [ class "triviaContainer" ]
+    [ triviaTitle model.question.content
     , div [ class "choices" ] <| List.map (\choice -> choiceButton choice model.question.state) model.question.choices
     , checkButton model.question.state
     , showResult model.question
     ]
 
 
+triviaTitle : String -> Html Msg
+triviaTitle title =
+  h1
+    [ class "question" ]
+    [ text title ]
+
+
 choiceButton : Choice -> QuestionState -> Html Msg
 choiceButton choice state =
   li
-    [ class "choice"
+    [ class "choiceButton"
     , classList [ ( "active", isSelectedChoice choice state ) ]
     , onClick ( Select choice )
     ]
@@ -114,7 +130,7 @@ choiceButton choice state =
 checkButton : QuestionState -> Html Msg
 checkButton state =
   button
-    [ class "check"
+    [ class "checkButton"
     , classList [ ( "disabled", state == NotAnswered ) ]
     , onClick CheckAnswer
     ]

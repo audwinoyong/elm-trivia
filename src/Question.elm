@@ -101,4 +101,4 @@ showResult question =
         _ ->
           ""
   in
-  h3 [] [ text result ]
+    h3 [] [ text result ]
