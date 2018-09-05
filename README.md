@@ -24,4 +24,4 @@ elm-app start
 
 The app is deployed at:
 
-[Demo](https://audwinoyong.github.io/elm-trivia/)
+#### [Demo](https://audwinoyong.github.io/elm-trivia/)
